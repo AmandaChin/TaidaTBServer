@@ -482,6 +482,27 @@ function editDemand(UserID, ServiceID, Duration, content, DemandStartTime, Deman
         }
     });
 }
+/**
+ * 根据service的ID查找servicelist
+ * @param UserID
+ * @param ServiceID
+ * @param Duration
+ * @param content
+ * @param DemandStartTime
+ * @param DemandEndTime
+ * @param Remark
+ */
+function FindServiceByServiceID(ServiceID, returnList)
+{
+    serviceLists.findAndCountAll({
+        where:{
+            "ServiceID": ServiceID
+        }
+    }).then(function(res){
+        return returnList(res)
+    }) 
+}
+
 exports.postNewRequirement = postNewRequirement;
 exports.getDemandByUserID = getDemandByUserID;
 exports.updateDemand = updateDemand;
@@ -492,3 +513,4 @@ exports.getDemandByConditionNoDurationNoContent=getDemandByConditionNoDurationNo
 exports.getDemandByConditionNoContent=getDemandByConditionNoContent;
 exports.deleteDemand = deleteDemand;
 exports.editDemand = editDemand;
+exports.FindServiceByServiceID = FindServiceByServiceID;

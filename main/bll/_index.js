@@ -16,6 +16,7 @@ module.exports.changeUserInformation = require('./OtherUserBLL').changeUserInfor
 module.exports.getOldManName = require('./OtherUserBLL').getOldManName;
 module.exports.getAllDemand = require('./DemandBLL').getAllDemand;
 module.exports.deleteDemand = require('./DemandBLL').deleteDemand;
+module.exports.FindServiceByServiceID = require('./DemandBLL').FindServiceByServiceID;
 module.exports.open = require('./test').open;
 module.exports.getDemandByCondition = require('./DemandBLL').getDemandByCondition;
 module.exports.getDemandByConditionNoDuration=require('./DemandBLL').getDemandByConditionNoDuration
