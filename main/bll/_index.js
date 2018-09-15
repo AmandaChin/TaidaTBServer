@@ -46,6 +46,7 @@ module.exports.getServiceType = require('./ServerItemBLL').getServiceType;
 module.exports.getMaterial = require('./ApplicationBLL').getMaterial;
 module.exports.uploadFile = require('./ApplicationBLL').uploadFile;
 module.exports.getCheckNum = require('./ApplicationBLL').getCheckNum;
+module.exports.getCheckMedal = require('./ApplicationBLL').getCheckMedal;
 //管理员端
 module.exports.getAllUsers = require('./ForSearch').getAllUsers;
 module.exports.ChangeAuthority = require('./ForSearch').ChangeAuthority;
