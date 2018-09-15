@@ -134,6 +134,7 @@ router.post("/getDemandByUserID", function(req, res){
     })
 });
 
+
 /**
  * 更新老人的某个需求
  */
@@ -581,6 +582,18 @@ router.post("/editDemand", function(req, res){
 });
 
 
+
+/**
+* 根据serviceID查询需求
+*/
+router.post("/FindServiceByServiceID", function (req, res) {
+  
+    bll.FindServiceByServiceID(req.body.serviceID,function(list){
+        res.json({           
+             "list": list        
+        })    
+})
+});
 
 /**
  * *********************************************************管理员端分界线*****************************************************************************
