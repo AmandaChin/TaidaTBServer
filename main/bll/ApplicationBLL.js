@@ -10,6 +10,7 @@ const serviceLists = require('../util/ormSequelize').ServiceLists;
 const volunteerservice = require('../util/ormSequelize').VolunteerService;
 const volunteerservicelists = require('../util/ormSequelize').VolunteerServiceLists;
 const checkNum = require('../blockchain/_index').checkNum;
+const checkMedal = require('../blockchain/_index').checkMedal;
 
 /**
  * 查询志愿者的全部已经服务的信息
@@ -350,6 +351,28 @@ function getCheckNum(UserId,ServiceID, callback){
     })
     
 }
+
+/**
+*根据用户ID与合约Hash获取实时审核勋章数量
+ */
+function getCheckMedal(UserId,ServiceID, callback){
+
+    //callback(8);
+    service.findAndCountAll({
+        where:{
+            "ServiceID": ServiceID
+        }
+    }).then(function(res){
+        if(res.rows[0].dataValues.ContractChainHASH.length>2){
+            checkMedal(UserId, res.rows[0].dataValues.ContractChainHASH, (result) => {
+                callback(result);
+            })
+        }else{
+            callback(0);
+        }
+    })
+    
+}
 /*
 *上传文件到OSS
  */
@@ -393,3 +416,4 @@ exports.applicateInVolunteerProvide = applicateInVolunteerProvide;
 exports.getUserByService=getUserByService;
 exports.getMaterial=getMaterial;
 exports.uploadFile = uploadFile;
+exports.getCheckMedal = getCheckMedal;

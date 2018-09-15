@@ -532,7 +532,21 @@ router.post("/getUserAccount", function (req, res) {
 */
 router.post("/getCheckNum", function (req, res) {
   
-    bll.getCheckNum(req.body.UserId,req.body.ServiceID,function(num){        
+    bll.getCheckNum(req.body.UserID,req.body.ServiceID,function(num){        
+        res.json({           
+             "num": num        
+        })    
+})
+
+});
+
+
+/**
+* 查询实时审核勋章数
+*/
+router.post("/getCheckMedal", function (req, res) {
+    console.log(req.body.UserID);
+    bll.getCheckMedal(req.body.UserID,req.body.ServiceID,function(num){        
         res.json({           
              "num": num        
         })    
