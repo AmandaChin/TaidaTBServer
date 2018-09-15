@@ -18,6 +18,7 @@ module.exports.getOldManName = require('./OtherUserBLL').getOldManName;
 module.exports.getAllVolunteerService = require('./DemandBLL').getAllVolunteerService;
 module.exports.getAllDemand = require('./DemandBLL').getAllDemand;
 module.exports.deleteDemand = require('./DemandBLL').deleteDemand;
+module.exports.FindServiceByServiceID = require('./DemandBLL').FindServiceByServiceID;
 module.exports.open = require('./test').open;
 module.exports.getProvideByCondition = require('./DemandBLL').getProvideByCondition;
 module.exports.getProvideByConditionNoDuration=require('./DemandBLL').getProvideByConditionNoDuration;
